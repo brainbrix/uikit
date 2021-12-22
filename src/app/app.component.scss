@@ -1,0 +1,102 @@
+.uk-card-default {
+  color: #000;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
+}
+
+.uk-card-primary {
+  background-color: #9999ff;
+  color: #000;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
+}
+.uk-card-warning {
+  background-color: #ff9660;
+  color: #000;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
+}
+
+.uk-container {
+  max-width: 1500px
+}
+
+.uk-card-badge {
+  background-color: rgb(220 220 220 / 50%);
+  font-weight: 2000;
+}
+.uk-card-badge:hover {
+//  background-color: #aa1111;
+  font-weight: 700;
+}
+
+.uk-card-title {
+  font-weight: 700;
+}
+.uk-card-body {
+  font-weight: 600;
+}
+
+.hideme {
+  transition: transform 1.2s; /* Animation */
+  transform: scale(0.9);
+}
+
+.uk-button {
+  box-shadow: 0 2px 10px rgb(0 0 0 / 50%);
+  text-transform: none;
+}
+.uk-card-footer {
+  padding: 0px;
+  padding-top: 10px;
+
+}
+
+.bt-24-header {
+  box-shadow: 0 2px 10px rgb(0 0 0 / 50%);
+  background-color: white;
+}
+.uk-navbar {
+  margin-bottom: 20px;
+}
+
+.quiz-card {
+  background-color: #ffc39c;
+}
+.memo-card {
+  background-color: #c0fda7;
+}
+.math-card {
+  background-color: #a7c2fc;
+}
+.crazy-card {
+  background-color: #8c61ff;
+}
+.unscramble-card {
+  background-color: #fcf395;
+}
+
+h4 {
+  margin-top: 15px;
+}
+
+.fixed-letter {
+  font-weight: 800;
+}
+/* Crazy letter */
+.fill-none{
+  fill: #1064fa;
+}
+.stroke-green {
+  stroke: #0056f1;
+  fill: #1064fa;
+}
+.crazy-num-text {
+  font-family:"Arial, Helvetica", sans-serif;
+}
+
+.uk-button-plain {
+  background-color: #fff4f6;
+  color: #000000;
+  border: 1px solid transparent;
+}
+.uk-button-plain:disabled {
+  background-color: rgba(246, 133, 1, 0);
+}

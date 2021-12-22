@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Infos
+
+### Install UIKIT in Angular Projekt
+
+https://colinstodd.com/posts/code/how-to-add-uikit-to-angular.html
+
+Share button Angular Directive
+https://stackblitz.com/edit/ngx-sharebuttons-angular?file=package.json
+https://github.com/MurhafSousli/ngx-sharebuttons/wiki/Share-Button-Directive
+https://www.eduforbetterment.com/angular-10-social-sharing-button/
