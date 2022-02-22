@@ -1,0 +1,26 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8H014ST1Z1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8H014ST1Z1');
+</script>
+
+  <title>Denksportaufgaben kostenlos für das tägliche Gehirnjogging</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Trainieren Sie täglich Ihr Gedächtnis. Rätsel und Denksportaufgaben kostenlos.">
+  <meta name="keywords" content="Denksport, Gehirnjogging, Rätsel, Denksportaufgaben, Gedächtnistraining">
+  <meta name="author" content="Heiko Spindler">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <meta property="og:title" content="Denksportaufgaben kostenlos" />
+  <meta property="og:type" content="website" />
+  <!--
+  <meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
+  <meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
+  -->
+  <meta property="og:locale" content="de_DE" />

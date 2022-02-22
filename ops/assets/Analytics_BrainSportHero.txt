@@ -1,0 +1,26 @@
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0MB31M68F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-G0MB31M68F');
+  </script>
+
+  <title>Free Puzzles - Be a Brain Sport Hero</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Train your brain adn memory with free puzzles, mind games and brain teasers">
+  <meta name="keywords" content="Puzzles, brain training, braint easers, memory training, mind games">
+  <meta name="author" content="Heiko Spindler">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <meta property="og:title" content="Brain training free" />
+  <meta property="og:type" content="website" />
+  <!--
+  <meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
+  <meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
+  -->
+  <meta property="og:locale" content="en_US" />
