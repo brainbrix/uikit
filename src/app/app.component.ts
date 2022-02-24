@@ -1,15 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit} from '@angular/core';
+import {DOCUMENT} from "@angular/common";
 import {Card} from "./entities/card";
 import {Quiz} from "./entities/quiz";
 import { HttpClient } from '@angular/common/http';
 import {CategoryItems, OpenTriviaQuizEntry, OpenTriviaQuizResponse} from "./entities/globaltypes";
-import {Memorize} from "./entities/memorize";
 import {MathExercisesService} from "./services/math-exercises.service";
 import {MemoExercisesService} from "./services/memo-exercises.service";
 import {Unscramble} from "./entities/unscramble";
 import {UnscrambleExercisesService} from "./services/unscramble-exercises.service";
 import {EventsService, ExerciseEvent} from "./services/EventService";
-import {Crazy} from "./entities/crazy";
+import {Version} from "../version";
+import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
+import {TranslateService } from '@ngx-translate/core';
+import {QuizExercisesService} from "./services/quiz-exercises.service";
+import {Strikeout} from "./entities/strikeout";
+import {StrikeoutGen} from "./entities/generators/strikeout/strikeoutGen";
+import {CrazyLettersGen} from "./entities/generators/crazy/crazyLettersGen";
 
 declare var UIkit: any;
 const MAX_CARD = 125;
@@ -19,85 +25,128 @@ const MAX_CARD = 125;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-
-  title = 'uikit';
+export class AppComponent implements OnInit {
 
   skill='';
-  answers=0;
-  correct=0;
   category='';
 
+  answers=0;
+  correct=0;
+
   cards : Card[] = [];
-  deletedId: number[] = [];
-  markedForDelete: number[] = [];
-  cardIndex = 0;
+//  cardIndex = 0;
 
   skillList: CategoryItems[] = [
-    {id:'', label:'All'}, {id:'Easy', label:'Easy'},{id:'Medium', label:'Medium'}, {id:'Hard', label:'Hard'}];
+    {id:'', label:'GENERAL.All'}, {id:'Easy', label:'GENERAL.Easy'},{id:'Medium', label:'GENERAL.Medium'}, {id:'Hard', label:'GENERAL.Hard'}];
 
   categoryList: CategoryItems[] = [
-    {id:'', label:'All'},
- //   {id:'Sports', label:'Sports'},{ id:'History', label:'History'},{id: 'Music', label:'Music'},
- //   {id:'Video Games', label:'Video Games'},
- //   {id:'Television',label:'Television'},
-    {id:'Quiz', label:'Quiz'},
-    {id:'Mathematics', label:'Mathematics'}, {id:'Memory', label:'Memory'}, {id:'Unscramble', label:'Unscramble'}
+    {id:'', label:'GENERAL.All'},
+    //   {id:'Sports', label:'Sports'},{ id:'History', label:'History'},{id: 'Music', label:'Music'},
+    //   {id:'Video Games', label:'Video Games'},
+    //   {id:'Television',label:'Television'},
+    {id:'Perception', label:'GENERAL.Perception'},{id:'Language', label:'GENERAL.Language'},
+    {id:'Math', label:'GENERAL.Math'}, {id:'Memory', label:'GENERAL.Memory'}
   ]
 
-  modalitem = null;
+  modalitem : any;
+  countObj:any = {"Quiz":0};
+  showfilter=false;
 
-  countMap = new Map<string, number>();
+  doToggleFilter() {
+    this.showfilter = !this.showfilter;
+  }
 
-  constructor( private http: HttpClient,
+  // @ts-ignore
+  constructor( @Inject(DOCUMENT) document, private http: HttpClient,
                private events: EventsService,
+               private quizService: QuizExercisesService,
                private mathService: MathExercisesService,
                private memoService: MemoExercisesService,
-               private unscrambleService: UnscrambleExercisesService
+               private unscrambleService: UnscrambleExercisesService,
+               private sanitizer: DomSanitizer,
+               private translateService: TranslateService
   ){
+    console.log('setInitialAppSettings()' );
+//      this.translateService.setTranslation("en", );
+//    this.translateService.setTranslation("de", );
+//      let language = this.translateService.getBrowserLang();
+    let language = Version.lang;
+    console.log("getBrowserLang",language);
+    if (!language) {
+      language = 'en';
+    }
+//      language = 'de';
+    this.translateService.setDefaultLang(language);
+
+
+    //console.log("translateStr ", translateStr);
+    /*
+          this.storage.get(LNG_KEY).then(val => {
+            if (val) {
+              this.setLanguage(val);
+              this.selected = val;
+            }
+          });
+        }
+      */
+
     Unscramble.eventService = this.events;
     this.events.getObservable().subscribe((data:ExerciseEvent) => {
-      this.removeCardId(data.id);
+
+      this.removeCardId(data.card);
       this.answers++;
       if (data.correct) {
         this.correct++;
       }
-
     });
 
-    this.addInitialData();
+  }
 
-    let m2 = new Memorize(this.cards.length, "Memorize Numbers", "Keep these numbers in your memory:<br/>3, six, 14, 7, ten, 5.", "", "", ['Memory'], ['2', '4', '5', '3']);
-    m2.text2 = "Recall: Answer this question:<br/>How many numbers where odd?";
-    m2.difficulty='Medium';
-    this.addToCards( m2 );
+  async ngOnInit() {
+    console.log('ngOnInit()');
 
-    let q2 = mathService.createExerciseCall(this.skill);
+    //await this.translateService.use('en').toPromise();
+
+    await this.translateService.get( 'HOME.linkTitleWebsite').toPromise();
+    let translateStr = this.translateService.instant( 'HOME.linkTitleWebsite');
+    // language = this.translateService.currentLang;
+    // console.log("Language used: ", language);
+    // translateService.use("en").subscribe(res => {
+    //   this.modalitem = new CrazyNumbersGen().generate();
+    //let translateStr = this.translateService.get( 'HOME.linkTitleWebsite');
+//        console.log("translateStr ", translateStr);
+//    this.addInitialData();
+
+//    let m2 = new Memorize("Memorize Numbers", "Keep these numbers in your memory:<br/>3, six, 14, 7, ten, 5.", "", "", ['Memory'], ['2', '4', '5', '3']);
+//    m2.text2 = "Recall: Answer this question:<br/>How many numbers where odd?";
+//    m2.difficulty='Medium';
+    //   this.addToCards( m2 );
+
+    let q2 = this.mathService.createExerciseCall(this.skill);
     this.addToCards( q2 );
+    this.getRefresh();
+  }
+
+  showItem():void {
+    UIkit.modal("#crazy-modal").show();
   }
 
   addToCards( quizEntry : Card) : void {
-    quizEntry.id = this.cardIndex;
-    this.cardIndex++;
     this.cards.push( quizEntry );
   }
 
-  isOfType(item:any) : string {
-    if (item instanceof Unscramble ) return 'UNSCRAMBLE';
-    if (item instanceof Memorize ) return 'MEMO';
-    if (item instanceof Crazy ) return 'CRAZY';
-    if (item instanceof Quiz ) return 'QUIZ';
-    if (item instanceof Card ) return 'CARD';
-    return 'NOTYPE';
-  }
   getAsQuiz(item:any):Quiz {
     return <Quiz>item;
   }
 
-   removeCardId(id:number): void {
-    this.markedForDelete.push(id);
-    // set Class fadeout
-    //this.deletedId.push(id);
+  removeCardId(card:Card): void {
+    card.hideCard();
+  }
+
+  removeOnClose(card:Card): void {
+    card.hideCard();
+    this.cards= this.cards.filter( c => c != card );
+    this.calcCardCounts();
   }
 
   getDataTags(card:Card) : string {
@@ -108,41 +157,11 @@ export class AppComponent {
 
   onClickAnswer( card:Card, answerNr:number) : void {
     let quizCard = card as Quiz;
-    quizCard.answerGiven = answerNr;
-    quizCard.answersState = [0,0,0,0];
-    let e : ExerciseEvent = {id: quizCard.id, correct:quizCard.answerCorrect == answerNr};
+    quizCard.clickAnswer(answerNr);
+    this.removeCardId(card);
+
+    let e : ExerciseEvent = {card:quizCard, correct:quizCard.answerCorrect == answerNr, timeOut:false};
     Unscramble.eventService.publishData(e);
-  }
-
-  getQuizButtonClass( card:Card, idx:number):string {
-    let quizCard = card as Quiz;
-    let className = "uk-button";
-    if ( quizCard.answerGiven !== -1 ) {
-      if (quizCard.answerCorrect == idx)
-        return className+" uk-alert-success uk-animation-scale-up";
-      if (quizCard.answerGiven == idx && quizCard.answerCorrect !== idx)
-        return className+" uk-alert-danger uk-animation-shake";
-      return className;
-    } else {
-      return className+" uk-button-primary";
-    }
-  }
-
-  getCardClass(card :Card) : string {
-    let cardClass = "uk-card-small uk-card-default uk-card-body";
-    if ( card.tags[0] == 'Unscramble') {
-      cardClass = cardClass + " unscramble-card"
-    } else if ( card.tags[0] == 'Memory') {
-      cardClass = cardClass + " memo-card"
-    } else if ( card.tags[0] == 'Mathematics') {
-      cardClass = cardClass + " math-card"
-    } else {
-      cardClass = cardClass + " quiz-card"
-    }
-    if (this.markedForDelete.indexOf(card.id) > -1 ) {
-      return cardClass+" hideme";
-    }
-    return cardClass;
   }
 
   timeLeft: number = 60000;
@@ -170,7 +189,7 @@ export class AppComponent {
       item.category = item.category.replace("Entertainment: ", "");
       let tags = item.category.split( ': ');
 
-      let quizEntry = new Quiz(this.cards.length, 'Quiz: '+tags[0], "<b>"+item.question+"</b>",
+      let quizEntry = new Quiz('Quiz: '+tags[0], "<b>"+item.question+"</b>",
         'Open Article', 'https://hirnsport.de', tags, item.incorrect_answers );
       quizEntry.difficulty = item.difficulty;
       tags.push("Quiz");
@@ -192,87 +211,178 @@ export class AppComponent {
   addInitialData() {
     let s = {"response_code":0,"results":[{"category":"Entertainment: Video Games","type":"multiple","difficulty":"medium","question":"In the &quot;Halo&quot; franchise, in what country is New Mombasa?","correct_answer":"Kenya","incorrect_answers":["India","Turkey","Slovakia"]},{"category":"Entertainment: Music","type":"multiple","difficulty":"hard","question":"Which of these songs is not by Tatsuro Yamashita?","correct_answer":"Lucky Lady Feel So Good ","incorrect_answers":["Merry-Go Round","Let&#039;s Dance Baby","Love Talkin&#039;"]},{"category":"Entertainment: Video Games","type":"multiple","difficulty":"medium","question":"How many times do you fight the Imprisoned in The Legend of Zelda: Skyward Sword?","correct_answer":"3","incorrect_answers":["2","4","5"]},{"category":"Entertainment: Music","type":"multiple","difficulty":"medium","question":"In what film was the Michael Jackson song &quot;Will You Be There&quot; featured?","correct_answer":"Free Willy","incorrect_answers":["Sleepless in Seattle","Men in Black","Bad Boys"]},{"category":"Entertainment: Music","type":"multiple","difficulty":"medium","question":"Which of these is NOT a song by Pegboard Nerds?","correct_answer":"WiFi Tears","incorrect_answers":["Swamp Thing","Emoji","BAMF"]},{"category":"Entertainment: Television","type":"multiple","difficulty":"medium","question":"Baron Silas Greenback is the arch nemesis of which cartoon hero?","correct_answer":"Danger Mouse","incorrect_answers":["Bananaman","SuperTed","Captain Star"]},{"category":"Sports","type":"multiple","difficulty":"easy","question":"Who is often called &quot;the Maestro&quot; in the men&#039;s tennis circuit?","correct_answer":"Roger Federer","incorrect_answers":["Bill Tilden","Boris Becker","Pete Sampras"]},{"category":"History","type":"multiple","difficulty":"medium","question":"When did O, Canada officially become the national anthem?","correct_answer":"1980","incorrect_answers":["1950","1920","1880"]}]};
     this.addDataToBoard(s.results);
-   // UIkit.modal.alert("UIkit alert!");
+    // UIkit.modal.alert("UIkit alert!");
   }
 
+  action=false;
   getRefresh() :void {
+    if (this.action)
+      return;
+    this.action = true;
+    setTimeout(() => { this.getRefreshIntern();}, 250);
+  }
+
+  private getRefreshIntern() :void {
+
+    let cards :Card[] = [];
+
+    let gen = new StrikeoutGen();
+    let configObject  = this.translateService.instant(StrikeoutGen.getConfigTag());
+    configObject["language"] = this.translateService.getDefaultLang();
+    gen.init( configObject);
+    let so = gen.generate("")
+
+//    let so2 = new Strikeout("Ziffern entfernen", "Entfernen Sie in der Rechnung zwei Ziffern und erreichen Sie das Ergebnis: 10", "", "", ["Math"],[] );
+    cards.push( so );
+//    cards.push( so2 );
+    cards.push(  this.memoService.createNrExercise());
+
+    cards.push( this.quizService.createWordScrambleQuiz(this.skill) );
+    cards.push( this.mathService.createExerciseRomanCall(this.skill) );
+    cards.push( this.mathService.createExerciseCall(this.skill) );
+    cards.push( this.memoService.createExerciseCall( this.skill) );
+    cards.push( this.memoService.createExerciseCall( this.skill) );
+    cards.push( this.mathService.createExerciseRomanQuizCall(this.skill));
+    cards.push( this.quizService.createWortCategoryQuiz(this.skill));
+    cards.push( this.quizService.createWortCategoryQuiz(this.skill));
+
+    cards.push( this.unscrambleService.createExerciseCall(this.skill) );
+    cards.push( this.unscrambleService.createMath() );
+
+    cards.push (this.quizService.createCrazyNumberQuiz(""));
+    cards.push( this.quizService.createCrazyLetterQuiz(""));
+
+    cards.push( this.quizService.createMemoQuiz(""));
+    cards.push( this.quizService.createMemoQuiz(""));
+
+    cards.push( this.quizService.createCountryMultipleBorder(""));
+    cards.push( this.quizService.createCountryBorder(""));
+
+    //cards.push( Card.createDummy());
+
     if (this.cards.length > MAX_CARD) {
-      // delete oldest
-      for (let i=0;i< 8;i++ ) {
-        this.removeCardId(this.cards[i].id)
+      for (let i=0;i< 20;i++ ) {
+        this.cards[i].hide = true;
       }
     }
+    let newCards = this.cards.filter( card => !card.hide );
 
-    if (this.markedForDelete.length > 0) {
-      let filtered: Card[] = [];
-      for (let i = 0; i < this.cards.length; i++) {
-        let index = this.markedForDelete.indexOf(this.cards[i].id);
-        if (index == -1)
-          filtered.push(this.cards[i]);
-      }
-      this.cards = filtered;
-      this.markedForDelete = [];
-    }
-
-    let q2 = this.mathService.createExerciseRomanCall(this.skill);
-    let q3 = this.mathService.createExerciseCall(this.skill);
-    let q4 = this.memoService.createExerciseCall( this.skill);
-    let q5 = this.memoService.createExerciseCall( this.skill);
-
-    this.addToCards( q2 );
-    this.addToCards( q3 );
-    this.addToCards( q4 );
-    this.addToCards( q5 );
-    this.addToCards( this.mathService.createExerciseRomanQuizCall(this.skill));
-
-    let s1 = this.unscrambleService.createExerciseCall(this.skill);
-    this.addToCards( s1 );
-
-    let m1 = this.unscrambleService.createMath();
-    this.addToCards( m1 );
-
-    let c1 = new Crazy(0,'Math: Crazy Digits','Digits are jumping around can You sum up all digit?',
-      'Open Article', 'https://hirnsport.de', ['Mathematics', 'Crazy'],['Answer1', 'Answer2', 'Answer3', 'Answer4'] );
-    this.addToCards(c1);
-    this.calcCardCounts();
+    newCards.push(...cards);
+    this.cards = newCards;
+    //this.calcCardCounts();
+    setTimeout(() => { this.calcCardCounts();}, 200);
+    this.action = false;
   }
 
   calcCardCounts():void {
-    this.countMap = new Map<string, number>();
-    for (let s of this.skillList ) {
-      this.countMap.set( s.label, 0 );
-    }
-    for (let c of this.categoryList ) {
-      this.countMap.set( c.label, 0 );
-    }
+    let co:any = {};
+    this.skillList.forEach(e=>{ co[e.id] = 0;});
+    this.categoryList.forEach(e=>{ co[e.id] = 0; })
     for (let c of this.cards) {
-      let n = this.countMap.get(c.difficulty)||0;
-      this.countMap.set(c.difficulty, n+1);
+      co[c.difficulty] = co[c.difficulty]+1;
       for (let t of c.tags) {
-        let n = this.countMap.get(t)||0;
-        this.countMap.set(t, n+1);
+        co[t] = co[t]+1;
       }
     }
-    this.countMap.set("All",this.cards.length);
+    co[""]= this.cards.length;
+    this.countObj = co;
+  }
+
+  private filterSkill() : Card[] {
+    if (this.skill != "" ) {
+      return this.cards.filter( card =>{return card.difficulty == this.skill});
+    }
+    return this.cards;
+  }
+  private filterCategory() : Card[] {
+    if ( this.category != "" ) {
+      return this.filterSkill().filter(card => {
+        return card.tags.includes(this.category);
+      });
+    } else {
+      return this.filterSkill();
+    }
   }
 
   getAllCard():any[] {
-
-    let filteredCards : Card[] = [];
-    for (let i = 0; i < this.cards.length; i++) {
-      const filterTags = this.cards[i].tags.join(",")+","+this.cards[i].difficulty;
-      let pos = 1;
-      if (this.category != '') {
-        pos = filterTags.indexOf(this.category);
-      }
-      if ( (pos > -1) && (this.skill != '' )) {
-        pos = filterTags.indexOf(this.skill);
-      }
-      if ( pos > -1)
-          filteredCards.push(this.cards[i]);
-    }
-
-    return filteredCards;
+    if (this.skill == "" && this.category == "")
+      return this.cards;
+    return this.filterCategory();
   }
 
+  getVersion() : string {
+    return Version.number
+  }
+
+  getSvgContent( svgString :string) :SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(svgString);
+  }
+
+  onLanguage():void {
+    let language = this.translateService.getDefaultLang();
+    if ( language == "en") {
+      language = "de";
+    } else {
+      language = "en";
+    }
+    this.translateService.setDefaultLang(language);
+    this.cards = [];
+    this.getRefresh();
+  }
+  getLanguage():string {
+    return this.translateService.getDefaultLang();
+  }
+  /*
+    checkPicture(quiz:Quiz) : void {
+
+      if ( quiz.hasPicture()) {
+        let element : SvgInHtml = document.getElementById('layer1'+quiz.id) as unknown as SvgInHtml;
+        if ( element ) {
+          let bbox=element.getBBox();
+  //        console.log("box", bbox);
+
+        //    let viewBoxX = 0;
+        //    let viewBoxY = 0;
+          const viewBoxWidth = 1000;
+          const viewBoxHeight = 800;
+
+         //   let cx = viewBoxX +(viewBoxWidth/2);
+         //   let cy = viewBoxY +(viewBoxHeight/2);
+
+            let scaleFactorX = 0.42* viewBoxWidth / (bbox.width / 2);
+            let scaleFactorY = 0.42* viewBoxHeight / (bbox.height / 2);
+            let minScaleFactor = Math.min(scaleFactorX, scaleFactorY);
+          minScaleFactor = 1.0;
+  //          var x = cx - ( bbox.width-bbox.x) / 2;
+  //          var y = cy - ( bbox.height-bbox.y) / 2;
+  //          x = x * minScaleFactor;
+  //          y = y * minScaleFactor;
+
+            let x = (viewBoxWidth - ((bbox.width+bbox.x) * minScaleFactor))/2;
+            let y = (viewBoxHeight - ((bbox.height+bbox.y) * minScaleFactor))/2;
+  x = 0;
+  y = 0;
+            //x = (+1)*bbox.x*minScaleFactor;
+            //y = (+1)*bbox.y*minScaleFactor;
+            //var matrix = '1 0 0 1 ' + x + ' ' + y;
+            //console.log("matrix", matrix);
+
+            //element.setAttribute('transform', 'matrix(' + matrix + ')');
+            //quiz.transformsvg1 = 'translate(' + x.toFixed(1)+','+y.toFixed(1) + ')';
+            //quiz.transformsvg2 = 'scale('+minScaleFactor.toFixed(1)+','+minScaleFactor.toFixed(1)+')';
+
+            let centerBoundingBoxX = ( bbox.width-bbox.x) / 2;
+            let centerBoundingBoxy = ( bbox.height-bbox.y) / 2;
+
+          centerBoundingBoxX = 500;
+          centerBoundingBoxy = 400;
+
+            //let angel = randomNumberInRange(0,360);
+            //quiz.transformsvg2 = quiz.transformsvg2 + " rotate( "+angel+","+centerBoundingBoxX.toFixed(1)+","+centerBoundingBoxy.toFixed(1)+" )";
+
+          //}
+        }
+      }
+    }
+   */
 }

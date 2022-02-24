@@ -1,0 +1,195 @@
+{
+  "GEN_QUIZ" : {
+    "COUNTRY" : {
+      "BORDER" : {
+        "title": "Quiz: Ländergrenzen",
+        "text": "Welches Land ist dargestellt?</br>Abbildung kann gedreht und in der Größe verändert sein.",
+        "descLink" : "https://www.hirnsport.de/denksport2/trainer/laender_grenzen_quiz/"
+      },
+      "BORDER_MULTIPLE" : {
+        "title": "Quiz: Länder-Chaos",
+        "text": "Welche Länder sind zu sehen?</br>Umrisse können gedreht und in der Größe geändert sein.",
+        "descLink" : "https://www.hirnsport.de/denksport2/trainer/laender_grenzen_quiz/#multi"
+      }
+    },
+    "WORD_CATEGORY": {
+      "title": "Quiz: Wort-Kategorien",
+      "text" : "Welches Wort passt nicht zu den anderen in der Liste?",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/wortkategorien"
+    },
+    "MEMO_NUMBERS": {
+      "title": "Memo: NumberOperators",
+      "text" : "Führen Sie die Operationen im Kopf durch. Was ist das Ergebnis?",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/gedaechtnistraining/",
+      "opStart": "Die Zahl ${operand} merken.",
+      "opAddNumber": "Mit '${operand}' addieren.",
+      "opMultiplyNumber": "Mit ${operand} multiplizieren.",
+      "opSumOfDigits": "Quersumme bilden.",
+      "opRemoveDigitLeft": "Ziffer am linken Rand entfernen.",
+      "opRemoveDigitRight": "Ziffer am rechten Rand entfernen.",
+      "opAddDigitLeft": "Ziffer '${digit}' links anfügen.",
+      "opAddDigitRight": "Ziffer '${digit}' rechts anfügen.",
+      "opSwapFirstLastDigit": "Tauschen der ersten und letzten Ziffer."
+    },
+    "LETTER_CHAOS": {
+      "title": "Quiz: Buchstaben-Chaos",
+      "text" : "Welches Wort ist hier dargestellt?",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/buchstaben_chaos"
+    }
+  },
+  "GEN_MATH": {
+    "CALC" : {
+      "title": "Mathe: Kopfrechnen",
+      "text" : "Wie lautet das korrekte Ergebnis der Rechnung:",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/mathematik/#rechnen"
+    },
+    "CALC_ROMAN" : {
+      "title": "Mathe: Rechnen mit römischen Zahlen",
+      "text" : "Wie lautet das korrekte Ergebnis der Rechnung mit römischen Zahlen:",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/mathematik/#roemische_zahlen"
+
+    },
+    "ROMAN_QUIZ" : {
+      "title": "Mathe: Römische Zahlen umwandeln",
+      "text" : "Wie lautet die korrekte römische Schreibweise der Zahl:",
+      "text2" : "Wie lautet die korrekte arabische Schreibweise der Zahl:",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/mathematik/#rechnen_roemische_zahlen"
+    }
+  },
+  "GEN_CRAZY": {
+    "LETTERS" : {
+      "title": "Verrückte Buchstaben",
+      "text" : "Hier fliegen Buchstaben wild durcheinander. Welcher Buchstabe kommt doppelt vor?",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/verrueckte_zahlen/"
+    },
+    "DIGITS" : {
+      "title": "Mathe: Verrückte Ziffern",
+      "text" : "Ziffern fliegen durcheinander. Wie lautet die Summe aller Ziffern?",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/verrueckte_zahlen/#buchstaben/"
+    }
+  },
+  "GEN_MEMO": {
+    "WORD_IN_LIST" : {
+      "title": "Worte Merken",
+      "text": "Prägen Sie sich diese Wörter ein:",
+      "text1" : "Welche Wort war in der Liste zuvor enthalten?",
+      "text2" : "Welches Wort war nicht in der Liste zuvor enthalten?",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/gedaechtnistraining/"
+
+    },
+    "WORD_LENGTH" : {
+      "title": "Worte Merken",
+      "text": "Prägen Sie sich diese Wörter ein:",
+      "text1" : "Wie viele Buchstaben hatte das kürzeste Wort?",
+      "text2" : "Wie viele Buchstaben hatte das längste Wort?",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/gedaechtnistraining/",
+      "correct": "Die Antwort ist korrekt",
+      "wrong": "Die Antwort ist falsch. Korrekt ist ${answer}"
+    },
+    "WORD_POSITION" : {
+      "title": "Worte Merken",
+      "text": "Prägen Sie sich diese Wörter ein:",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/gedaechtnistraining/",
+      "text1" : "Welches Wort war das erste Wort in der Liste?",
+      "text2" : "Welches Wort war das zweite Wort in der Liste?",
+      "text3" : "Welches Wort war das letzte Wort in der Liste?",
+      "text4" : "Welches Wort war das vorletzte Wort in der Liste?"
+
+    },
+    "NUMBER_HIGH_LOW": {
+      "title": "Zahlen Merken",
+      "text": "Prägen Sie sich diese Zahlen ein:",
+      "text1" : "Welche war die kleinste Zahl in der Liste?",
+      "text2" : "Welche war die größte Zahl in der Liste?",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/gedaechtnistraining/"
+
+    }
+  },
+  "GEN_ORDER" : {
+    "EXPRESSION" : {
+      "title": "Mathe: Rechnung finden",
+      "text": "Ordnen Sie Ziffern und Operatoren und finden Sie eine Rechnung, die alle Elemente benutzt und das Ergebnis erreicht:",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/choas_ordnen/#mathematik"
+    },
+    "WORD" : {
+      "title": "Wort finden",
+      "text": "Finden Sie das gesuchte Wort und ordnen Sie alle Buchstaben korrekt an.",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/chaos_ordnen/#worte"
+    }
+  },
+  "GEN_STRIKEOUT" : {
+    "WORD" : {
+      "title": "Buchstaben Entfernen",
+      "text": "Entfernen Sie _XY_ Buchstaben und finden Sie das gesuchte Wort.",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/buchstaben_entfernen"
+    },
+    "EXPRESSION" : {
+      "title": "Ziffern Entfernen",
+      "text": "Entfernen Sie in der Rechnung _XY_ Ziffern. Kein Operand darf komplett entfallen. Erreichen Sie das Ergebnis:",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/buchstaben_entfernen"
+    }
+  },
+  "GENERAL": {
+    "back": "Zurück",
+    "time": "Zeit",
+    "menuHome": "Start",
+    "menuGames": "Spiele",
+    "menuSettings": "Einstellungen",
+    "menuDashboard": "Dashboard",
+    "menuLogin": "Einloggen",
+    "dateFormat": "dd.MM.yyyy",
+    "timeFormat": "HH:mm",
+    "dateTimeFormat": "HH:mm dd.MM.yyyy",
+    "nextExercise": "nächste Aufgabe",
+    "answerExercise": "Anworten",
+    "Skill": "Schwierigkeitsgrad",
+    "Category": "Kategorie",
+
+    "All": "Alle",
+    "Easy": "Leicht",
+    "Medium": "Mittel",
+    "Hard": "Schwer",
+    "Quiz": "Wissen",
+    "Math": "Mathe",
+    "Memory": "Gedächtnis",
+    "Unscramble": "Ordnen",
+    "Language": "Sprache",
+
+    "Crazy": "Crazy",
+    "Perception": "Wahrnehmung",
+
+    "Refresh": "Neu Laden",
+    "Filter": "Filtern",
+    "Clear": "Löschen",
+    "SolveStep": "Tipp",
+    "NextStep": "Weiter",
+    "Imprint": "Impressum",
+    "ImprintLink": "https://www.hirnsport.de/denksport2/impressum",
+    "Copyright": "2022 by www.Hirnsport.de",
+    "Contact": "Kontakt",
+    "Email": "heiko.spindler@hirnsport.de",
+    "description": "Beschreibung der Aufgaben",
+
+    "correct": "Die Antwort ist korrekt.",
+    "wrong": "Die Antwort ist falsch.",
+
+    "linkQuiz": "https://www.hirnsport.de/denksport2/",
+    "linkMemo": "https://www.hirnsport.de/denksport2/",
+    "linkCrazy": "https://www.hirnsport.de/denksport2/",
+    "linkUnscramble": "https://www.hirnsport.de/denksport2/"
+  },
+  "HOME": {
+    "title": "Denksport Trainer",
+    "homeTitle": "Willkommen auf der der Gehirn-Training-Plattform von HirnSport.de.",
+    "greeting": "<p>In dieser Anwendung können sie mit unseren Aufgaben Ihr Gehirn trainieren</p><p>Dieser Bereich ist im Testbetrieb und wird aktuell noch entwickelt. Es können neue Funktionen aufgenommen oder alte verändert oder entfernt werden.</p>",
+    "linkTitleExercises": "Zu den Aufgaben",
+    "linkTitleWebsite": "Zu www.HirnSport.de",
+    "linkWebsite": "https://www.HirnSport.de",
+    "linkTitleWebsitePartner": "Zur englischen Webseite unter www.BrainSportHero.com",
+    "linkWebsitePartner": "https://www.BrainSportHero.com"
+  },
+  "SETTINGS": {
+    "header": "Einstellungen",
+    "titleLanguage": "Sprache"
+  }
+}

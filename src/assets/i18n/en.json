@@ -1,0 +1,195 @@
+{
+  "GEN_QUIZ" : {
+    "COUNTRY" : {
+      "BORDER" : {
+        "title": "Quiz: Country Borders",
+        "text": "Which country border is shown on the picture? The picture could be rotated and scaled.",
+        "descLink" : "https://brainsporthero.com/puzzles/country-border-quiz/"
+      },
+      "BORDER_MULTIPLE" : {
+        "title": "Quiz: Country Chaos",
+        "text": "Which country borders are shown on the picture? The borders could be rotated and scaled.",
+        "descLink" : "https://brainsporthero.com/puzzles/country-border-quiz/"
+      }
+    },
+    "WORD_CATEGORY": {
+      "title": "Quiz: Word categories",
+      "text" : "Which word does not belong to the other words in the list?",
+      "descLink" : "https://www.BrainSportHero.com/puzzles/"
+    },
+    "MEMO_NUMBERS": {
+      "title": "Memo: Number Operations",
+      "text" : "Try to execute the operations in your memory. What is the result?",
+      "descLink" : "https://www.BrainSportHero.com/puzzles/memory-training/",
+      "opStart": "Remember the number ${operand}.",
+      "opAddNumber": "Add ${operand} to the number.",
+      "opMultiplyNumber": "Multiply the number with ${operand}.",
+      "opSumOfDigits": "Build the sum of all digits.",
+      "opRemoveDigitLeft": "Remove the leftmost digit.",
+      "opRemoveDigitRight": "Remove the rightmost digit.",
+      "opAddDigitLeft": "Concatenate ${digit} to the left edge.",
+      "opAddDigitRight": "Concatenate ${digit} to the right edge.",
+      "opSwapFirstLastDigit": "Change positions of the first and last digits."
+    },
+    "LETTER_CHAOS": {
+      "title": "Quiz: Letter-Chaos",
+      "text" : "Which word is shown here?",
+      "descLink" : "https://www.BrainSportHero.com/puzzles/letter-chaos/"
+    }
+  },
+  "GEN_MATH": {
+    "CALC" : {
+      "title": "Math: Calculation",
+      "text" : "Calculate the correct result of th expression:",
+      "descLink" : "https://www.BrainSportHero.com/puzzles/math-puzzles/"
+    },
+    "CALC_ROMAN" : {
+      "title": "Math: Calc roman numerals",
+      "text": "Calculate the result of the expression in roman numerals:",
+      "descLink" : "https://www.BrainSportHero.com/puzzles/math-puzzles/"
+    },
+    "ROMAN_QUIZ" : {
+      "title": "Math: Roman numerals",
+      "text": "What is the correct roman numeral of the arabic numeral:",
+      "text2": "What is the correct arabic numeral of the roman numeral:",
+      "descLink" : "https://www.BrainSportHero.com/puzzles/math-puzzles/"
+    }
+  },
+  "GEN_CRAZY": {
+    "LETTERS" : {
+      "title": "Crazy Letters",
+      "text" : "Letters fly around. Find the letter that exists twice.",
+      "descLink" : "https://www.BrainSportHero.com/puzzles/crazy-letters-numbers/"
+    },
+    "DIGITS" : {
+      "title": "Mathe: Crazy Digits",
+      "text" : "Digits are jumping around can you sum up all digit?",
+      "descLink" : "https://www.BrainSportHero.com/puzzles/crazy-letters-numbers/"
+    }
+  },
+  "GEN_MEMO": {
+    "WORD_IN_LIST" : {
+      "title": "Memory: Remember words",
+      "text": "Remember the words and answer the question in the step.",
+      "descLink" : "https://www.BrainSportHero.com/puzzles/memory-training/",
+      "text1" : "Which word was not in the list before?",
+      "text2" : "Which word was not in the list before?"
+    },
+    "WORD_LENGTH" : {
+      "title": "Memory: Remember words",
+      "text": "Remember the words and answer the question in the step.",
+      "descLink" : "https://www.BrainSportHero.com/puzzles/memory-training/",
+      "text1" : "How many letters has the longest word?",
+      "text2" : "How many letters has the shortest word?"
+    },
+    "WORD_POSITION" : {
+      "title": "Memory: Remember words",
+      "text": "Remember the words and answer the question in the step.",
+      "text1" : "Which word was the first in the list?",
+      "text2" : "Which word was the second in the list?",
+      "text3" : "Which word was the last in the list?",
+      "text4" : "Which word was the second last in the list?",
+      "descLink" : "https://www.BrainSportHero.com/puzzles/memory-training/",
+
+      "correct_todo" : "Your answer was correct.",
+      "wrong_todo": "Your answer was wrong. Correct answer is:"
+    },
+    "NUMBER_HIGH_LOW": {
+      "title": "Remember Numbers",
+      "text": "Store these numbers in your memory:",
+      "text1" : "Which number was the smallest in the list?",
+      "text2" : "Which number was the highest in the list?",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/memory-training/"
+
+    }
+  },
+  "GEN_ORDER" : {
+    "EXPRESSION" : {
+      "title": "Unscramble: Expression",
+      "text": "Unscramble the target expression and reach the result of:",
+      "descLink" : "https://www.BrainSportHero.com/trainer/find-the-word/"
+    },
+    "WORD" : {
+      "title": "Unscramble: Word",
+      "text": "Use all letters and unscramble the word.",
+      "descLink" : "https://www.BrainSportHero.com/trainer/find-the-word/"
+    }
+  },
+  "GEN_STRIKEOUT" : {
+    "WORD" : {
+      "title": "Remove Letters",
+      "text": "Remove _XY_ letters and find the hidden Word.",
+      "descLink" : "https://www.BrainSportHero.com/trainer/remove_letters"
+    },
+    "EXPRESSION" : {
+      "title": "Remove Digits",
+      "text": "Remove _XY_ digits from the calculation. No operand should be removed completly. Reach the target result of:",
+      "descLink" : "https://www.BrainSportHero.com/trainer/remove_letters"
+    }
+  },
+  "GENERAL": {
+    "back": "Back",
+    "time": "Time",
+    "menuHome": "Home",
+    "menuGames": "Games",
+    "menuSettings": "Settings",
+    "menuDashboard": "Dashboard",
+    "menuLogin": "Login",
+    "dateFormat": "MM/dd/yyyy",
+    "timeFormat": "hh:mm a",
+    "dateTimeFormat": "hh:mm a MM/dd/yyyy",
+    "nextExercise": "Next exercise",
+    "answerExercise": "Answer",
+    "Skill": "Skill",
+    "Category": "Category",
+
+    "All": "All",
+    "Easy": "Easy",
+    "Medium": "Medium",
+    "Hard": "Hard",
+    "Quiz": "Quiz",
+    "Math": "Math",
+    "Memory": "Memory",
+    "Unscramble": "Unscramble",
+    "Language": "Language",
+
+    "Crazy": "Crazy",
+    "Perception": "Perception",
+
+    "Refresh": "Refresh",
+    "Filter": "Filter",
+    "Clear": "Clear",
+    "SolveStep": "Help",
+    "NextStep": "Next",
+    "Imprint": "Imprint",
+    "ImprintLink": "https://www.BrainSportHero.com/impressum",
+    "Copyright": "2022 by BrainSportHero.com",
+    "Contact": "Contact",
+    "Email": "info@BrainSportHero.com",
+    "description": "Description of the exercises.",
+
+    "correct": "The answer is correct.",
+    "wrong": "The answer is wrong.",
+
+    "linkQuiz": "https://www.BrainSportHero.com/",
+    "linkMemo": "https://www.BrainSportHero.com/",
+    "linkCrazy": "https://www.BrainSportHero.com/",
+    "linkUnscramble": "https://www.BrainSportHero.com/"
+  },
+  "HOME": {
+    "title_XX": "BrainTeaser24.com",
+    "title": "Puzzles & Brain Trainer",
+    "homeTitle": "Exercise Area of BrainSporthero.com",
+
+    "greeting": "<p>In this area we provide brain puzzles and brain teasers for your brain training.</p><p>This site is in beta phase of development. So be prepared that from time to time new features will be added. And perhaps some less used features could be removed. </p>",
+    "linkTitleExercises": "Jump right to the exercises",
+    "linkTitleWebsite": "Jump to www.BrainSportHero.com",
+    "linkWebsite": "https://www.BrainSportHero.com",
+    "linkTitleWebsitePartner": "Jump to our german content at www.HirnSport.de",
+    "linkWebsitePartner": "https://www.HirnSport.de"
+  },
+  "SETTINGS": {
+    "header": "Settings",
+    "titleLanguage": "Language"
+  }
+}

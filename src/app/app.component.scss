@@ -1,3 +1,79 @@
+
+
+@media  (max-width: 4000px) {
+  .container {
+    column-count: 4;
+    column-gap: 10px;
+  }
+}
+
+@media  (max-width: 1750px) {
+  .container {
+    column-count: 3;
+    column-gap: 10px;
+  }
+}
+@media  (max-width: 1150px) {
+  .container {
+    column-count: 2;
+    column-gap: 10px;
+  }
+}
+@media (max-width: 750px) {
+  .container {
+    column-count: 1;
+    column-gap: 10px;
+  }
+}
+
+/*
+body {
+  background-color: #000;
+  font: 1.1em Arial, Helvetica, sans-serif;
+}
+*/
+body {
+  background-color: #000;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.mycard {
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  margin-bottom: 10px;
+  break-inside: avoid;
+  grid-row: 1 / -1;
+  grid-column: 1;
+}
+
+.svg-exercise {
+  background-color: white;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 50%);
+}
+
+
+.uk-grid > * {
+  margin: 0px;
+  padding: 10px;
+}
+
+ul.main {
+  margin-left: 0px;
+  padding: 1px 5px;
+}
+div.main {
+  margin-left: 0px;
+  margin-bottom: 10px;
+  padding: 1px 10px;
+}
+
 .uk-card-default {
   color: #000;
   box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
@@ -15,7 +91,13 @@
 }
 
 .uk-container {
-  max-width: 1500px
+  max-width: 1400px;
+  padding-left: 5px;
+  padding-right: 5px
+}
+
+.uk-close-large:hover {
+  color: red;
 }
 
 .uk-card-badge {
@@ -23,8 +105,9 @@
   font-weight: 2000;
 }
 .uk-card-badge:hover {
-//  background-color: #aa1111;
+  background-color: #aa1111;
   font-weight: 700;
+  color: red;
 }
 
 .uk-card-title {
@@ -38,10 +121,19 @@
   transition: transform 1.2s; /* Animation */
   transform: scale(0.9);
 }
+.blink_me {
+  animation: blinker 2s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
 
 .uk-button {
-  box-shadow: 0 2px 10px rgb(0 0 0 / 50%);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 50%);
   text-transform: none;
+  font-size: 18px;
 }
 .uk-card-footer {
   padding: 0px;
@@ -57,17 +149,27 @@
   margin-bottom: 20px;
 }
 
+.base-card {
+  box-shadow: 0 5px 10px rgb(0 0 0 / 50%);
+  font-weight: 400;
+  overflow: visible;
+}
+
+.info-card {
+  background-color: #bebebe;
+}
+
 .quiz-card {
   background-color: #ffc39c;
 }
 .memo-card {
   background-color: #c0fda7;
 }
-.math-card {
+.strikeout-card {
   background-color: #a7c2fc;
 }
 .crazy-card {
-  background-color: #8c61ff;
+  background-color: #b9a2ff;
 }
 .unscramble-card {
   background-color: #fcf395;
@@ -79,6 +181,7 @@ h4 {
 
 .fixed-letter {
   font-weight: 800;
+  color:gray
 }
 /* Crazy letter */
 .fill-none{
@@ -90,6 +193,9 @@ h4 {
 }
 .crazy-num-text {
   font-family:"Arial, Helvetica", sans-serif;
+  font-weight: 800;
+  dominant-baseline: middle;
+  text-anchor: middle;
 }
 
 .uk-button-plain {
@@ -99,4 +205,40 @@ h4 {
 }
 .uk-button-plain:disabled {
   background-color: rgba(246, 133, 1, 0);
+}
+
+/* strikeout */
+.svg-exercise2 {
+  background-color: rgb(0,0,0,0.0);
+  margin-bottom: 0px;
+}
+
+.operator {
+  fill: rgb(116,169,250,0.0);
+}
+.number {
+  fill: rgb(150,150,150,0.2);
+  stroke: black;
+  stroke-width: 0px;
+  -webkit-filter: drop-shadow( 2px 2px 2px rgba(0, 0, 0, .4));
+  filter: drop-shadow( 2px 2px 2px rgba(0, 0, 0, .4));
+}
+.number_ok {
+  fill: rgb(100,255,100,0.6);
+  stroke: black;
+  stroke-width: 0px;
+
+  -webkit-filter: drop-shadow( 2px 2px 2px rgba(0, 0, 0, .4));
+  filter: drop-shadow( 2px 2px 2px rgba(0, 0, 0, .4));
+}
+.number:hover {
+  fill: rgb(255,255,255,0.8);
+  stroke: black;
+  stroke-width: 0px;
+}
+.number_back {
+  fill: #a7c2fc;
+}
+.heavy {
+  font: bold 25px sans-serif;
 }
