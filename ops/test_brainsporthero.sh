@@ -19,9 +19,9 @@ cd /Users/hsp/projects/brainsport/dev/workscape/uikit/ops/
 ncftp ftp://$USER:$PASSWD@$HOST/$SUBDOMAINDIR < cmd.txt
 
 ## update base path
+
 cd /Users/hsp/projects/brainsport/dev/workscape/uikit/dist/static
 sed -i'' -e 's/href="\/"/href="https:\/\/puzzles\.brainsporthero\.com\/"/g' index.html
-
 ## Add Analytics Script after marker: <!--Pointer...
 sed -i'' -e '/\<\!--Pointer/r /Users/hsp/projects/brainsport/dev/workscape/uikit/ops/assets/Analytics_BrainSportHero.txt' index.html
 

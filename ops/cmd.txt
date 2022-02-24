@@ -1,3 +1,4 @@
 ls
 rm -rf assets
+rm -rf assets/i18n
 exit
