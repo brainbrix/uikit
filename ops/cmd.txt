@@ -1,4 +1,6 @@
 ls
-rm -rf assets
-rm -rf assets/i18n
+cd assets
+rm -rf *
+cd i18m
+rm -rf *
 exit
