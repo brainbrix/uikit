@@ -13,9 +13,7 @@ import {Version} from "../version";
 import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
 import {TranslateService } from '@ngx-translate/core';
 import {QuizExercisesService} from "./services/quiz-exercises.service";
-import {Strikeout} from "./entities/strikeout";
 import {StrikeoutGen} from "./entities/generators/strikeout/strikeoutGen";
-import {CrazyLettersGen} from "./entities/generators/crazy/crazyLettersGen";
 
 declare var UIkit: any;
 const MAX_CARD = 125;
@@ -122,8 +120,8 @@ export class AppComponent implements OnInit {
 //    m2.difficulty='Medium';
     //   this.addToCards( m2 );
 
-    let q2 = this.mathService.createExerciseCall(this.skill);
-    this.addToCards( q2 );
+//    let q2 = this.mathService.createExerciseCall(this.skill);
+//    this.addToCards( q2 );
     this.getRefresh();
   }
 

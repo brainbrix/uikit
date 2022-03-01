@@ -142,14 +142,23 @@
           <div class="uk-animation-scale-up">
             <h2 class="uk-card-title" [innerHTML]="item.title"></h2>
             <h4 class="uk-text-bold" [innerHTML]="item.text"></h4>
-            <div *ngIf="item.hasPictureContent">
+            <div *ngIf="item.hasPictureContent == 'SVG'">
               <svg class="uk-align-center svg-exercise" width="80%" height="80%" viewBox="0 0 1000 800">
                 <title>Denksportaufgaben und Rätsel</title>
-                <g *ngFor="let p of item.parts" [attr.transform]="p.transform" [innerHTML]="getSvgContent(p.svg)" >
-
+              <g *ngFor="let p of item.parts" [attr.transform]="p.transform" [innerHTML]="getSvgContent(p.svg)" >
                 </g>
               </svg>
             </div>
+            <div *ngIf="item.hasPictureContent == 'SYMBOLS'">
+            <svg class="uk-align-center svg-exercise" width="80%" height="80%" viewBox="0 0 1000 800">
+              <title>Denksportaufgaben und Rätsel</title>
+              <g style="fill:none;stroke:#FF0000;stroke-width:15.0;stroke-miterlimit:1;stroke-dasharray:none;stroke-opacity:1;stroke-linecap:round;stroke-linejoin:round;">
+                <g *ngFor="let p of item.parts" [attr.transform]="p.transform" >
+                  <use [attr.href]="'/assets/symbols.svg#'+p.countryName" [attr.style]="p.style" ></use>
+                </g>
+              </g>
+            </svg>
+          </div>
             <table *ngIf="!item.hasLongAnswers" class="uk table uk-text-center" style="width:100%; padding-bottom: 10px;">
               <tr>
                 <td *ngFor="let answerIdx of [0,1]">

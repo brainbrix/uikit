@@ -99,7 +99,7 @@
       "text": "Store these numbers in your memory:",
       "text1" : "Which number was the smallest in the list?",
       "text2" : "Which number was the highest in the list?",
-      "descLink" : "https://www.hirnsport.de/denksport2/trainer/memory-training/"
+      "descLink" : "https://www.brainsporthero.com/puzzles/memory-training/"
 
     }
   },
@@ -107,24 +107,24 @@
     "EXPRESSION" : {
       "title": "Unscramble: Expression",
       "text": "Unscramble the target expression and reach the result of:",
-      "descLink" : "https://www.BrainSportHero.com/trainer/find-the-word/"
+      "descLink" : "https://www.BrainSportHero.com/puzzles/find-the-word/"
     },
     "WORD" : {
       "title": "Unscramble: Word",
       "text": "Use all letters and unscramble the word.",
-      "descLink" : "https://www.BrainSportHero.com/trainer/find-the-word/"
+      "descLink" : "https://www.BrainSportHero.com/puzzles/find-the-word/"
     }
   },
   "GEN_STRIKEOUT" : {
     "WORD" : {
       "title": "Remove Letters",
       "text": "Remove _XY_ letters and find the hidden Word.",
-      "descLink" : "https://www.BrainSportHero.com/trainer/remove_letters"
+      "descLink" : "https://www.BrainSportHero.com/puzzles/remove_letters"
     },
     "EXPRESSION" : {
       "title": "Remove Digits",
       "text": "Remove _XY_ digits from the calculation. No operand should be removed completly. Reach the target result of:",
-      "descLink" : "https://www.BrainSportHero.com/trainer/remove_letters"
+      "descLink" : "https://www.BrainSportHero.com/puzzles/remove_letters"
     }
   },
   "GENERAL": {
@@ -169,12 +169,7 @@
     "description": "Description of the exercises.",
 
     "correct": "The answer is correct.",
-    "wrong": "The answer is wrong.",
-
-    "linkQuiz": "https://www.BrainSportHero.com/",
-    "linkMemo": "https://www.BrainSportHero.com/",
-    "linkCrazy": "https://www.BrainSportHero.com/",
-    "linkUnscramble": "https://www.BrainSportHero.com/"
+    "wrong": "The answer is wrong."
   },
   "HOME": {
     "title_XX": "BrainTeaser24.com",
