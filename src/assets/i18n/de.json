@@ -35,6 +35,14 @@
       "title": "Quiz: Buchstaben-Chaos",
       "text" : "Welches Wort ist hier dargestellt?",
       "descLink" : "https://www.hirnsport.de/denksport2/trainer/buchstaben_chaos"
+    },
+    "COLOR_MATCH": {
+      "title": "Farben erkennen",
+      "text" : "Wie oft passt die Einfärbung zum dargestellten Farbnamen?",
+      "text2" : "Wie oft passt die Einfärbung nicht zum dargestellten Farbnamen?",
+      "text3" : "Wie oft kommt die Farbe ${color} insgesamt in den Worten vor?<br>Zählen Sie die Farbnennung und die Einfärbung der Worte.",
+
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/farben_erkennen"
     }
   },
   "GEN_MATH": {

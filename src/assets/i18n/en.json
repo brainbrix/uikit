@@ -35,6 +35,15 @@
       "title": "Quiz: Letter-Chaos",
       "text" : "Which word is shown here?",
       "descLink" : "https://www.BrainSportHero.com/puzzles/letter-chaos/"
+    },
+    "COLOR_MATCH": {
+      "title": "Color Match",
+      "text" : "How often does the coloring match the displayed color name?",
+      "text2" : "How often does the coloring NOT match the displayed color name?",
+      "text3" : "How many times does the color appear in the words?<br/>Count the color names and coloring of the words.",
+
+
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/farben_erkennen"
     }
   },
   "GEN_MATH": {

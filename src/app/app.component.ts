@@ -14,6 +14,7 @@ import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
 import {TranslateService } from '@ngx-translate/core';
 import {QuizExercisesService} from "./services/quiz-exercises.service";
 import {StrikeoutGen} from "./entities/generators/strikeout/strikeoutGen";
+import {ColorWordQuizGen} from "./entities/generators/quiz/colorWordQuizGen";
 
 declare var UIkit: any;
 const MAX_CARD = 125;
@@ -224,14 +225,21 @@ export class AppComponent implements OnInit {
 
     let cards :Card[] = [];
 
+    let gen1 = new ColorWordQuizGen();
+    let configObject1  = this.translateService.instant(ColorWordQuizGen.getConfigTag());
+    configObject1["language"] = this.translateService.getDefaultLang();
+    gen1.init( configObject1);
+    let so1 = gen1.generate() ;
+
     let gen = new StrikeoutGen();
     let configObject  = this.translateService.instant(StrikeoutGen.getConfigTag());
     configObject["language"] = this.translateService.getDefaultLang();
     gen.init( configObject);
     let so = gen.generate("")
 
-//    let so2 = new Strikeout("Ziffern entfernen", "Entfernen Sie in der Rechnung zwei Ziffern und erreichen Sie das Ergebnis: 10", "", "", ["Math"],[] );
+ //   let so2 = new Strikeout("Ziffern entfernen", "Entfernen Sie in der Rechnung zwei Ziffern und erreichen Sie das Ergebnis: 10", "", "", ["Math"],[] );
     cards.push( so );
+    cards.push( so1 );
 //    cards.push( so2 );
     cards.push(  this.memoService.createNrExercise());
 
