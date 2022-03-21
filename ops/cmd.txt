@@ -1,6 +1,6 @@
 ls
 cd assets
 rm -rf *
-cd i18m
+cd i18n
 rm -rf *
 exit
