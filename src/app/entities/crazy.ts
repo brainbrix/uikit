@@ -15,6 +15,7 @@ export class Crazy extends Quiz {
   timer = 0;
   timerMax = 25 * 1000;
   timerValue = "100";
+  elementType = "LETTER"
 
   public letters: elementType[] = [
     {x:10, y:20, dx:2, dy:2, r:0, dr:-2, s:1.0, ds:0.02, label:"X", color:"red", t1:"", t2:""},

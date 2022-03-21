@@ -72,9 +72,13 @@ export class CrazyNumbersGen extends GeneratorBase {
     //exValues.answers.forEach(a => strAnswers.push(""+a));
 
     strAnswers = this.createAnswers( sum );
-
+    let objAnswers : any[] = [];
+    strAnswers.forEach(e=>{
+      let o = { name:e };
+      objAnswers.push( o);
+    });
     let c1 = new Crazy(this.title,this.text,
-    '', this.descLink, this.tags,strAnswers );
+    '', this.descLink, this.tags,objAnswers );
     c1.letters = letters;
     c1.difficulty = "Easy";
     if (nrOfDigits > 6) {

@@ -40,7 +40,7 @@
       "title": "Farben erkennen",
       "text" : "Wie oft passt die Einfärbung zum dargestellten Farbnamen?",
       "text2" : "Wie oft passt die Einfärbung nicht zum dargestellten Farbnamen?",
-      "text3" : "Wie oft kommt die Farbe ${color} insgesamt in den Worten vor?<br>Zählen Sie die Farbnennung und die Einfärbung der Worte.",
+      "text3" : "Wie oft kommt die Farbe <strong>__COLOR__</strong> insgesamt in den Worten vor?<br>Zählen Sie die Farbnennung und die Einfärbung der Worte.",
 
       "descLink" : "https://www.hirnsport.de/denksport2/trainer/farben_erkennen"
     }
@@ -73,6 +73,11 @@
     "DIGITS" : {
       "title": "Mathe: Verrückte Ziffern",
       "text" : "Ziffern fliegen durcheinander. Wie lautet die Summe aller Ziffern?",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/verrueckte_zahlen/#buchstaben/"
+    },
+    "SYMBOLS" : {
+      "title": "Verrückte Symbols",
+      "text" : "Symbole fliegen durcheinander. Welches Symbol kommt doppelt vor?",
       "descLink" : "https://www.hirnsport.de/denksport2/trainer/verrueckte_zahlen/#buchstaben/"
     }
   },
@@ -128,12 +133,12 @@
   "GEN_STRIKEOUT" : {
     "WORD" : {
       "title": "Buchstaben Entfernen",
-      "text": "Entfernen Sie _XY_ Buchstaben und finden Sie das gesuchte Wort.",
+      "text": "Entfernen Sie _XY_ Buchstaben und finden Sie das gesuchte Wort. Die Reihenfolge bleibt erhalten.",
       "descLink" : "https://www.hirnsport.de/denksport2/trainer/buchstaben_entfernen"
     },
     "EXPRESSION" : {
       "title": "Ziffern Entfernen",
-      "text": "Entfernen Sie in der Rechnung _XY_ Ziffern. Kein Operand darf komplett entfallen. Erreichen Sie das Ergebnis:",
+      "text": "Entfernen Sie in der Rechnung __XY__ Ziffern. Kein Operand darf komplett entfallen und die Reihenfolge bleibt erhalten. Erreichen Sie das Ergebnis: <strong>__AB__</strong>",
       "descLink" : "https://www.hirnsport.de/denksport2/trainer/buchstaben_entfernen"
     }
   },

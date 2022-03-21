@@ -4,14 +4,13 @@ import {GeneratorBase} from "../generatorBase";
 import {colorList} from "../data";
 /*
 Sum up all digits/numbers
-Sum all even/odd numbers
-Sum all all numbers in blue/red/green
+Sum up all even/odd numbers
+Sum up all numbers in blue/red/green
 Sum up the highest and the lowest number
 Sum up the two highest/lowest numbers
 
 Which letter exists only once?
 Which letter exists twice?
-
 
  */
 
@@ -71,9 +70,15 @@ export class CrazyLettersGen extends GeneratorBase {
 
     let strAnswers : string[] = [];
     strAnswers = this.createAnswers( label );
+    let objAnswers : any[] = [];
+    strAnswers.forEach(e=>{
+      let o = { name:e };
+      objAnswers.push( o);
+    });
+
 
     let c1 = new Crazy(this.title,this.text,
-    '', this.descLink, this.tags,strAnswers );
+    '', this.descLink, this.tags,objAnswers );
     c1.letters = letters;
     c1.difficulty = "Easy";
     if (nrOfLetters > 6) {

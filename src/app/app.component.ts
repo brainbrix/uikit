@@ -13,8 +13,10 @@ import {Version} from "../version";
 import {DomSanitizer, SafeHtml} from "@angular/platform-browser";
 import {TranslateService } from '@ngx-translate/core';
 import {QuizExercisesService} from "./services/quiz-exercises.service";
-import {StrikeoutGen} from "./entities/generators/strikeout/strikeoutGen";
+import {StrikeoutLettersGen} from "./entities/generators/strikeout/strikeoutLettersGen";
 import {ColorWordQuizGen} from "./entities/generators/quiz/colorWordQuizGen";
+import {StrikeoutDigitsGen} from "./entities/generators/strikeout/strikeoutDidigitGen";
+import {CrazySymbolsGen} from "./entities/generators/crazy/crazySymbolsGen";
 
 declare var UIkit: any;
 const MAX_CARD = 125;
@@ -229,19 +231,32 @@ export class AppComponent implements OnInit {
     let configObject1  = this.translateService.instant(ColorWordQuizGen.getConfigTag());
     configObject1["language"] = this.translateService.getDefaultLang();
     gen1.init( configObject1);
-    let so1 = gen1.generate() ;
+    let so1 = gen1.generate();
 
-    let gen = new StrikeoutGen();
-    let configObject  = this.translateService.instant(StrikeoutGen.getConfigTag());
+    let gen = new StrikeoutLettersGen();
+    let configObject  = this.translateService.instant(StrikeoutLettersGen.getConfigTag());
     configObject["language"] = this.translateService.getDefaultLang();
     gen.init( configObject);
-    let so = gen.generate("")
+    let so = gen.generate("");
+
+    let genDidigit = new StrikeoutDigitsGen();
+    let configObject2  = this.translateService.instant(StrikeoutDigitsGen.getConfigTag());
+    configObject2["language"] = this.translateService.getDefaultLang();
+    genDidigit.init( configObject2);
+    let so2 = genDidigit.generate("");
+
+    let genCrazySymbol = new CrazySymbolsGen();
+    let configObject3  = this.translateService.instant(CrazySymbolsGen.getConfigTag());
+    configObject3["language"] = this.translateService.getDefaultLang();
+    genCrazySymbol.init( configObject3);
+    let so3 = genCrazySymbol.generate();
 
  //   let so2 = new Strikeout("Ziffern entfernen", "Entfernen Sie in der Rechnung zwei Ziffern und erreichen Sie das Ergebnis: 10", "", "", ["Math"],[] );
     cards.push( so );
+    cards.push( so2 );
     cards.push( so1 );
-//    cards.push( so2 );
-    cards.push(  this.memoService.createNrExercise());
+    cards.push( so3 );
+    cards.push( this.memoService.createNrExercise() );
 
     cards.push( this.quizService.createWordScrambleQuiz(this.skill) );
     cards.push( this.mathService.createExerciseRomanCall(this.skill) );

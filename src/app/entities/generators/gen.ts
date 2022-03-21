@@ -4,9 +4,10 @@ type FunctionName = (n: string) => boolean;
 type NumberFunctionName = (n: number) => boolean;
 type AnyFunctionName = (n: any) => boolean;
 
-export const notInList = (wordList:string[] ) : FunctionName => {
+export const notInList = (wordList:any[] ) : FunctionName => {
   return (word)=>!wordList.includes(word);
 }
+
 export const notIn = (anyList:any[] ) : AnyFunctionName => {
   return (nr)=>!anyList.includes(nr);
 }

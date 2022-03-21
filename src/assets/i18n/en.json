@@ -40,10 +40,9 @@
       "title": "Color Match",
       "text" : "How often does the coloring match the displayed color name?",
       "text2" : "How often does the coloring NOT match the displayed color name?",
-      "text3" : "How many times does the color appear in the words?<br/>Count the color names and coloring of the words.",
+      "text3" : "How many times does the color <strong>__COLOR__</strong> appear in the words?<br/>Count the color names and coloring of the words.",
 
-
-      "descLink" : "https://www.hirnsport.de/denksport2/trainer/farben_erkennen"
+      "descLink" : "https://www.BrainSportHero.com/puzzles/color_match"
     }
   },
   "GEN_MATH": {
@@ -73,6 +72,11 @@
     "DIGITS" : {
       "title": "Mathe: Crazy Digits",
       "text" : "Digits are jumping around can you sum up all digit?",
+      "descLink" : "https://www.BrainSportHero.com/puzzles/crazy-letters-numbers/"
+    },
+    "SYMBOLS" : {
+      "title": "Crazy Symbols",
+      "text" : "Symbole are around. Find the symbol that exists twice.",
       "descLink" : "https://www.BrainSportHero.com/puzzles/crazy-letters-numbers/"
     }
   },
@@ -127,12 +131,12 @@
   "GEN_STRIKEOUT" : {
     "WORD" : {
       "title": "Remove Letters",
-      "text": "Remove _XY_ letters and find the hidden Word.",
+      "text": "Remove _XY_ letters and find the hidden Word. The order of the letters remains the same.",
       "descLink" : "https://www.BrainSportHero.com/puzzles/remove_letters"
     },
     "EXPRESSION" : {
       "title": "Remove Digits",
-      "text": "Remove _XY_ digits from the calculation. No operand should be removed completly. Reach the target result of:",
+      "text": "Remove __XY__ digits from the calculation. No operand should be removed completly adn the order of the letters remains the same. Reach the target result of:<strong>__AB__</strong>",
       "descLink" : "https://www.BrainSportHero.com/puzzles/remove_letters"
     }
   },

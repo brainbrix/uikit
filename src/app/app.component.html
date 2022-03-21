@@ -13,7 +13,7 @@
           <h3 class=" uk-heading-bullet" style="height:20px;">{{'HOME.title' | translate}}</h3><!--<mat-icon svgIcon="icon-pacman"></mat-icon><span class="material-icons">face</span>-->
 
           <button class="uk-button uk-button-small" type="button" [attr.uk-icon]="showfilter?'chevron-up':'chevron-down'" (click)="doToggleFilter()">{{'GENERAL.Filter' | translate}}</button>
-          <button class="uk-button uk-button-primary uk-button-small" (click)="getRefresh()" [disabled]="action?'disabled':''">{{'GENERAL.Refresh' | translate}}</button>
+          <button class="uk-button uk-button-primary uk-button-small" (click)="getRefresh()" [disabled]="action?'disabled':''">{{'GENERAL.Refresh' | translate}}&nbsp;({{countObj['']}})</button>
 
           <div *ngIf="showfilter" style="margin:5px;">
             <!--
@@ -345,37 +345,40 @@
             </div>
 
             <div *ngIf="item.mode >= 1">
-              <svg class="uk-align-center svg-exercise" width="80%" height="80%" viewBox="0 0 100 80">
+              <svg *ngIf="item.elementType=='LETTER'" class="uk-align-center svg-exercise" width="80%" height="80%" viewBox="0 0 100 80">
                 <title>Denksportaufgaben und Rätsel</title>
                 <rect x="1" y="1" [attr.width]="item.timerValue" height="2" class="stroke-green"></rect>
-                <!--
-                  <g *ngFor="let element of item.letters" [attr.transform]="item.getTransformGroup(element)">
-                    <text class="crazy-num-text" [attr.transform]="item.getTransform(element)"
-                           dominant-baseline="middle" text-anchor="middle"
-                           [attr.fill]="element.color"
-                    >{{element.label}}</text>
-                  </g>
-                  -->
                 <g *ngFor="let element of item.letters" [attr.transform]="element.t1">
                   <text class="crazy-num-text" [attr.transform]="element.t2"
                         [attr.fill]="element.color"
                   >{{element.label}}</text>
                 </g>
               </svg>
-
+              <svg *ngIf="item.elementType=='SYMBOL'" class="uk-align-center svg-exercise" width="80%" height="80%" viewBox="0 0 100 80">
+                <title>Denksportaufgaben und Rätsel</title>
+                <rect x="1" y="1" [attr.width]="item.timerValue" height="2" class="stroke-green"></rect>
+                <g *ngFor="let element of item.letters" [attr.transform]="element.t1">
+                  <use [attr.href]="'/assets/symbol-defs2.svg#'+element.label" [attr.transform]="element.t2"
+                       [attr.fill]="element.color" x="-4" y="-4" height="8" width="8" ></use>
+                </g>
+              </svg>
               <table class="uk table uk-text-center" style="width:100%; padding-bottom: 10px;">
                 <tr>
                   <td *ngFor="let answerIdx of [0,1]">
                     <button (click)="onClickAnswer(item, answerIdx); item.start();" [class]="item.buttonClass[answerIdx]"
-                            style="width:100%;" [disabled]="item.buttonDisabled[answerIdx]"
-                            [innerHTML]="item.answers[answerIdx]"></button>
+                            style="width:100%;" [disabled]="item.buttonDisabled[answerIdx]">
+                      <svg *ngIf="item.elementType=='SYMBOL'" style="width:24px; height:20px;" viewbox="0 0 20 20"><use [attr.href]="'/assets/symbol-defs2.svg#'+item.answers[answerIdx].icon" x="0" y="0" height="20" width="20"/></svg>
+                      {{item.answers[answerIdx].name}}
+                    </button>
                   </td>
                 </tr>
                 <tr>
                   <td *ngFor="let answerIdx of [2,3]">
                     <button (click)="onClickAnswer(item, answerIdx); item.start();" [class]="item.buttonClass[answerIdx]"
-                            style="width:100%;" [disabled]="item.buttonDisabled[answerIdx]"
-                            [innerHTML]="item.answers[answerIdx]"></button>
+                            style="width:100%;" [disabled]="item.buttonDisabled[answerIdx]">
+                      <svg *ngIf="item.elementType=='SYMBOL'" style="width:24px; height:20px;" viewbox="0 0 20 20"><use [attr.href]="'/assets/symbol-defs2.svg#'+item.answers[answerIdx].icon" x="0" y="0" height="20" width="20"/></svg>
+                      {{item.answers[answerIdx].name}}
+                    </button>
                   </td>
                 </tr>
               </table>
@@ -491,7 +494,7 @@
 
     </div>
     <div class="uk-margin uk-align-center" >
-      <button class="uk-button uk-button-primary" (click)="getRefresh()" [disabled]="action?'disabled':''">{{'GENERAL.Refresh' | translate}}</button>
+      <button class="uk-button uk-button-primary" (click)="getRefresh()" [disabled]="action?'disabled':''">{{'GENERAL.Refresh' | translate}}&nbsp;({{countObj['']}})</button>
     </div>
     <hr>
     <div class="main uk-child-width-expand@s" uk-grid>

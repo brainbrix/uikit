@@ -2,20 +2,20 @@ import {GeneratorBase} from "../generatorBase";
 import {Quiz} from "../../quiz";
 import {Strikeout} from "../../strikeout";
 import {getRandomElementFromList, randomElementsFromList, randomNumberInRange} from "../gen";
-import {words4de, words4en, words5de, words5en, words6de, words6en} from "../words";
+import {words4de, words4en, words5de, words5en, words6de, words6en, words7de, words7en} from "../words";
 import {getRandomLetter} from "../data";
 
 const skillLevels = new Map<string, any>([
   ["Easy", {en: words4en, de: words4de, addChars:2}],
   ["Medium", {en: words5en, de: words5de, addChars:3}],
-  ["Hard", {en: words6en, de: words6de, addChars:3}]
+  ["Hard", {en: words7en, de: words7de, addChars:3}]
 ]);
 
-export class StrikeoutGen extends GeneratorBase {
+export class StrikeoutLettersGen extends GeneratorBase {
 
-  title= "Überflissige Buchstaben";
+  title= "..";
   tags= ['Language'];
-  text= "Which word does not belong to the other words in the list?";
+  text= "..";
 
   public static getConfigTag() : string {
     return "GEN_STRIKEOUT.WORD";
