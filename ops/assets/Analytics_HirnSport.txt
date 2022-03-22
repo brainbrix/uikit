@@ -9,7 +9,7 @@
 </script>
 
   <title>Denksportaufgaben kostenlos für das tägliche Gehirnjogging</title>
-  <base href="/">
+  <base href="https://denksport.hirnsport.de/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Trainieren Sie täglich Ihr Gedächtnis. Rätsel und Denksportaufgaben kostenlos.">
   <meta name="keywords" content="Denksport, Gehirnjogging, Rätsel, Denksportaufgaben, Gedächtnistraining">

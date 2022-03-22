@@ -18,10 +18,16 @@ npx scully
 cd /Users/hsp/projects/brainsport/dev/workscape/uikit/ops/
 ncftp ftp://$USER:$PASSWD@$HOST/$SUBDOMAINDIR < cmd.txt
 
-## update base path
-
+## Add project specific part in index.html
 cd /Users/hsp/projects/brainsport/dev/workscape/uikit/dist/static
-sed -i'' -e 's/href="\/"/href="https:\/\/puzzles\.brainsporthero\.com\/"/g' index.html
+
+sed  '/<!-- START -->/,/<!-- END -->/d' index.html > index2.html
+cp index2.html index.html
+rm index2.html
+
+## Change language in html header
+sed -i'' -e 's/lang="de"/lang="en"/g' index.html
+
 ## Add Analytics Script after marker: <!--Pointer...
 sed -i'' -e '/\<\!--Pointer/r /Users/hsp/projects/brainsport/dev/workscape/uikit/ops/assets/Analytics_BrainSportHero.txt' index.html
 

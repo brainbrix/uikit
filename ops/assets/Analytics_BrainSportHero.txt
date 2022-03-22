@@ -9,7 +9,7 @@
   </script>
 
   <title>Free Puzzles - Be a Brain Sport Hero</title>
-  <base href="/">
+  <base href="https://puzzles.brainsporthero.com/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Train your brain adn memory with free puzzles, mind games and brain teasers">
   <meta name="keywords" content="Puzzles, brain training, braint easers, memory training, mind games">
@@ -17,7 +17,7 @@
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <meta property="og:title" content="Brain training free" />
+  <meta property="og:title" content="Free Brain Training" />
   <meta property="og:type" content="website" />
   <!--
   <meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
