@@ -61,6 +61,10 @@
       "text": "What is the correct roman numeral of the arabic numeral:",
       "text2": "What is the correct arabic numeral of the roman numeral:",
       "descLink" : "https://www.BrainSportHero.com/puzzles/math-puzzles/"
+    }, "NUMBER_WORDS" : {
+      "title": "Math: Number Words",
+      "text" : "Decode the numbers and calculate the expression:",
+      "descLink" : "https://www.BrainSportHero.com/puzzles/math-puzzles/"
     }
   },
   "GEN_CRAZY": {
@@ -76,7 +80,7 @@
     },
     "SYMBOLS" : {
       "title": "Crazy Symbols",
-      "text" : "Symbole are around. Find the symbol that exists twice.",
+      "text" : "Symbols are flying around. Find the symbol that exists twice.",
       "descLink" : "https://www.BrainSportHero.com/puzzles/crazy-letters-numbers/"
     }
   },

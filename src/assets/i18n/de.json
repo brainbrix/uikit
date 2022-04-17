@@ -62,6 +62,11 @@
       "text" : "Wie lautet die korrekte römische Schreibweise der Zahl:",
       "text2" : "Wie lautet die korrekte arabische Schreibweise der Zahl:",
       "descLink" : "https://www.hirnsport.de/denksport2/trainer/mathematik/#rechnen_roemische_zahlen"
+    },
+    "NUMBER_WORDS" : {
+      "title": "Mathe: Rechnen mit Worten",
+      "text" : "Entschlüsseln Sie die Zahlen und berechnen Sie das Ergebnis:",
+      "descLink" : "https://www.hirnsport.de/denksport2/trainer/mathematik/#rechnen"
     }
   },
   "GEN_CRAZY": {
